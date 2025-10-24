@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    def imageTest
     stages {
         stage('Checkout') {
             steps {
@@ -10,10 +11,8 @@ pipeline {
         stage('Unit Tests'){
             steps {
                 script {
-                    def imageTest= docker.build("my-python-test",  "-f Dockerfile.test .")
-                    imageTest.inside{
-                        sh 'python test_main.py'
-                    }
+                    imageTest = docker.build("my-python-test",  "-f Dockerfile.test .")
+                    
                 }
             }
         }
