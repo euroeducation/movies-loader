@@ -9,8 +9,10 @@ pipeline {
 
         stage('Unit Tests'){
             steps {
-                sh "docker build -t my-python-test -f Dockerfile.test ."
-                sh "docker run --rm my-python-test"
+                def imageTest= docker.build("my-python-test",  "-f Dockerfile.test .")
+                imageTest.inside{
+                    sh 'python test_main.py'
+                }
             }
         }
     }
