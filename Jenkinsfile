@@ -11,9 +11,8 @@ pipeline {
             steps {
                 script {
                     def imageTest = docker.build("my-python-test",  "-f Dockerfile.test .")
-                    imageTest.inside{
-                        sh 'python test_main.py'
-                    }
+                    sh "docker run --rm -v $PWD/reports:/app/reports my-python-test"
+                    junit "$PWD/reports/*.xml"
                 }
             }
         }
