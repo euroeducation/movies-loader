@@ -11,7 +11,10 @@ pipeline {
             steps {
                 script {
                     def imageTest = docker.build("my-python-test",  "-f Dockerfile.test .")
-                    junit "$PWD/reports/*.xml"
+                    imageTest.inside{
+                        sh 'python test_main.py'
+                    }
+                    
                 }
             }
         }
