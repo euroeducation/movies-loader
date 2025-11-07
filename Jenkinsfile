@@ -23,7 +23,7 @@ pipeline {
         stage('Build'){
             steps {
                 script {
-                    docker.build(imageName)
+                    docker.build(${imageName})
                 }
             }
         }
