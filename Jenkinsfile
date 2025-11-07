@@ -31,7 +31,10 @@ pipeline {
         stage('Build'){
             steps {
                 script {
-                    docker.build('my-python')
+                   docker.build('my-python')
+                   if (BRANCH_NAME == 'develop') {
+                      println "========>done."
+                  }
                 }
             }
         }
