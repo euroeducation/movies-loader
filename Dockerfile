@@ -1,5 +1,5 @@
-FROM python:3.7.3
-LABEL MAINTAINER mlabouardy
+FROM python:3.9.24
+LABEL MAINTAINER=euroeducation
 
 WORKDIR /app 
 
