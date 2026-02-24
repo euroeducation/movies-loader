@@ -33,7 +33,7 @@ pipeline {
                 script {
                    docker.build('my-python')
                    if (BRANCH_NAME == 'develop') {
-                      println "========>done."
+                      println "========>done!."
                   }
                 }
             }
