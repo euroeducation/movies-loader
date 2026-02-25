@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                    if (BRANCH_NAME == 'develop') {
-                      println "========>done!."
+                      println "========>done!!."
                   }
                 }
             }
