@@ -15,6 +15,15 @@ pipeline {
                 checkout scm
             }
         }
+       stage('Print'){
+            steps {
+                script {
+                   if (BRANCH_NAME == 'develop') {
+                      println "========>done!."
+                  }
+                }
+            }
+        }
 
        /*
         stage('Unit Tests'){
